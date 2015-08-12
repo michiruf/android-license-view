@@ -1,0 +1,8 @@
+.DS_Store
+build/
+captures/
+.idea/
+.gradle/
+*.iml
+*.properties
+!/gradle/wrapper/gradle-wrapper.properties
