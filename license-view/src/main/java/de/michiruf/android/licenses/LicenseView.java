@@ -18,8 +18,6 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 /**
- * Created by Michael on 08.08.2015.
- *
  * @author Michael Ruf
  * @since 2015-08-08
  */
@@ -72,16 +70,15 @@ public class LicenseView extends ListView {
         try {
             for (String file : assetManager.list(path)) {
                 String license = readInputStream(assetManager.open(path + "/" + file), "UTF-8");
-                getAdapter().add(new License(file, license));
+                getLicenseAdapter().add(new License(file, license));
             }
-            getAdapter().notifyDataSetChanged();
+            getLicenseAdapter().notifyDataSetChanged();
         } catch (IOException e) {
             throw new IllegalArgumentException("Assets cannot get loaded for given options", e);
         }
     }
 
-    @Override
-    public Adapter getAdapter() {
+    public Adapter getLicenseAdapter() {
         return (Adapter) super.getAdapter();
     }
 
